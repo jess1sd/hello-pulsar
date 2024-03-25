@@ -7,8 +7,6 @@ def produce():
 
     for i in range(10):
         producer.send(('hello-pulsar-%d' % i).encode('utf-8'))
-        stats = producer.stats()
-        print (stats)
     client.close()
 
 

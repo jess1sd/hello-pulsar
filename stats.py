@@ -10,7 +10,7 @@ topic = 'my-topic'
 
 # Construct the URL for topic stats
 url = f"{pulsar_admin_url}/admin/v2/persistent/{tenant}/{namespace}/{topic}/stats"
-
+#curl http://localhost:8080/admin/v2/persistent/public/default/my-topic/stats | python -m json.tool
 
 def get_stats() -> str:
     # Make the GET request
@@ -26,5 +26,6 @@ def get_stats() -> str:
 
 if __name__ == "__main__":
     while (True):
-        time.sleep(5)
         print(get_stats())
+        print ("\n\nWill pull in 5 more seconds\n\n")
+        time.sleep(5)

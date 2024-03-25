@@ -2,7 +2,7 @@
 ## Install Packages
 ``` 
 pip install requests
-pip install pulsar-python
+pip install pulsar-client
 ```
 ## Run Pulsar locally
 
@@ -15,4 +15,12 @@ docker run -it -p 6650:6650  -p 8088:8080 --mount source=pulsardata,target=/puls
 ```
 
 ## Run test scripts
-Run 
+Run client to subscribe and start listening. 
+``` 
+$ python client.py
+
+```
+Open another terminal and send some test messages using server.py
+``` 
+python server.py
+```
