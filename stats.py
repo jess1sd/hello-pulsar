@@ -1,3 +1,5 @@
+import time
+
 import requests
 
 # Replace these variables with your actual Pulsar cluster information
@@ -21,3 +23,8 @@ def get_stats() -> str:
         return stats
     else:
         return "Failed to retrieve stats:" + response.status_code
+
+if __name__ == "__main__":
+    while (True):
+        time.sleep(5)
+        print(get_stats())
