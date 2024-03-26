@@ -14,11 +14,10 @@ docker run -it -p 6650:6650  -p 8088:8080 --mount source=pulsardata,target=/puls
 
 ```
 
-## Run test scripts
+## Produce and Consume Simple Message
 Run client to subscribe and start listening. 
 ``` 
 $ python client.py
-
 ```
 You should see logs like 
 ``` 
@@ -60,4 +59,22 @@ And you should see stats in json format, printed every 5 seconds until the serve
 ``` 
 {'msgRateIn': 0.0, 'msgThroughputIn': 0.0, 'msgRateOut': 0.0, 'msgThroughputOut': 0.0, 'bytesInCounter': 490, 'msgInCounter': 10, 'bytesOutCounter': 490, 'msgOutCounter': 10, 'averageMsgSize': 0.0, 'msgChunkPublished': False, 'storageSize': 490, 'backlogSize': 0, 
 'publishRateLimitedTimes': 0, 'earliestMsgPublishTimeInBacklo...
+```
+
+## Produce and Consume Json Message
+Let's test sending json message like this 
+``` 
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+}
+```
+
+Produce a message in json format
+``` 
+$ python json_producer.py
+```
+Then consume it (will exist after consuming):
+``` 
+$ python json_consumer.py
 ```

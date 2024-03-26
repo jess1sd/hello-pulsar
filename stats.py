@@ -9,8 +9,9 @@ namespace = 'default'
 topic = 'my-topic'
 
 # Construct the URL for topic stats
+# curl http://localhost:8080/admin/v2/persistent/public/default/my-topic/stats | python -m json.tool
+
 url = f"{pulsar_admin_url}/admin/v2/persistent/{tenant}/{namespace}/{topic}/stats"
-#curl http://localhost:8080/admin/v2/persistent/public/default/my-topic/stats | python -m json.tool
 
 def get_stats() -> str:
     # Make the GET request
